@@ -1,0 +1,260 @@
+@media (max-width: 1024px) {
+  .app {
+    padding: 30px;
+  }
+
+  .dashboard {
+    margin-bottom: 3.75vw;
+
+    &__icon {
+      &-text {
+        font-size: 3.5vw;
+      }
+    }
+
+    &__temperature {
+      margin-bottom: 2.5vw;
+      &-text {
+        &--main {
+          font-size: 7.5vw;
+        }
+
+        &--fl {
+          font-size: 6vw;
+        }
+      }
+    }
+
+    &__date {
+      &-text {
+        font-size: 2.75vw
+      }
+    }
+  }
+
+  .info {
+    position: unset;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(3, 1fr);
+    -ms-grid-columns: repeat(3, 1fr);
+    width: 100%;
+    margin-bottom: 10vw;
+    
+    &__item {
+      text-align: center;
+
+      &:not(:last-child) {
+        margin: 0;
+      }
+    }
+
+    &__text {
+      &--key {
+        padding: 0;
+        font-size: 2.5vw;
+
+        &:before {
+          width: 5vw;
+          height: 5vw;
+          position: unset;
+          display: block;
+          transform: unset;
+          margin: 0 auto 2.5vw;
+        }
+      }
+
+      &--value {
+        padding: 0;
+        font-size: 2.5vw;
+        line-height: 2.5vw;
+      }
+    }
+
+    &__icon {
+      width: 3vw;
+      height: 3vw;
+    }
+  }
+
+  .slider {
+    position: relative;
+    bottom: unset;
+    left: -30px;
+    padding: 0 30px;
+    margin-bottom: 3.75vw;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100vw;
+    box-sizing: border-box;
+
+    &__item {
+      height: 27.5vw;
+      padding: 2vw 0;
+
+      &-logo {
+        width: 7.5vw;
+        height: 7.5vw;
+      }
+      
+      &-text {
+        &--date {
+          font-size: 2.5vw;
+        }
+
+        &--temperature {
+          font-size: 2.5vw;
+        }
+
+        &--fl {
+          font-size: 2vw;
+        }
+      }
+    }
+  }
+
+  .search {
+    &__bar {
+      height: 5vw;
+    }
+
+    &__input {
+      width: 25vw;
+      font-size: 2vw;
+      padding-left: 1.5vw;
+      margin-right: 5.35vw;
+
+      &-bg {
+        opacity: .5 
+      }
+    }
+
+    &__button {
+      width: 5.35vw;
+      background-color: $orange;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .app {
+    padding: calc(50px + 12.5vw) 23px 23px;
+  }
+
+  .search {
+    &__bar {
+      height: 50px;
+      width: calc(100% - 23px * 2);
+      position: fixed;
+      top: 23px;
+      right: unset;
+    }
+
+    &__input {
+      margin-right: 50px;
+      width: inherit;
+      font-size: 15px;
+      padding-left: 15px; 
+    }
+
+    &__button {
+      width: 50px;
+    }
+  }
+
+  .dashboard {
+    // margin-top: calc(50px + 8vw);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12vw;
+
+    &__icon {
+      margin-bottom: 4vw;
+
+      &-image {
+        width: 15vw;
+        height: 15vw;
+        margin-bottom: 4vw;
+      }
+
+      &-text {
+        font-size: 6vw;
+      }
+    }
+
+    &__temperature {
+      margin-bottom: 4vw;
+
+      &-text {
+        &--main {
+          font-size: 14.6vw;
+        }
+
+        &--fl {
+          font-size: 9.4vw;
+        }
+      }
+    }
+
+    &__date {
+      &-text {
+        font-size: 4.1vw;
+      }
+    }
+  }
+
+  .info {
+    &__text {
+      &--key {
+        margin-bottom: 3vw;
+        font-size: 3vw;
+
+        &:before {
+          width: 12.5vw;
+          height: 12.5vw;
+          margin-bottom: 4vw;
+        }
+      }
+
+      &--value {
+        font-size: 3vw;
+      }
+    }
+
+    &__icon {
+      width: 3.5vw;
+      height: 3.5vw;
+    }
+  }
+
+  .slider {
+    left: -23px;
+    padding-left: 23px;
+    padding-right: 23px;
+    margin-bottom: 12vw;
+    
+    &__item {
+      height: 30vw;
+
+      &-logo {
+        width: 10vw;
+        height: 10vw;
+      }
+      
+      &-text {
+        &--date {
+          font-size: 3vw;
+        }
+
+        &--temperature {
+          font-size: 3vw;
+        }
+
+        &--fl {
+          font-size: 2.5vw;
+        }
+      }
+    }
+  }
+}

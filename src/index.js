@@ -1,12 +1,30 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+
+import { Search } from '../src/components/Search/Search';
+import { Dashboard } from '../src/components/Info/Dashboard';
+import { Info } from '../src/components/Info/Info';
+import { Slider } from '../src/components/Slider/Slider';
+
+import './scss/main.scss';
+import { Background } from './components/Background/Background';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Background/>
+      <Search />
+      <Dashboard />
+      <Slider />
+      <Info />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

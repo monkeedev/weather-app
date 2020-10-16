@@ -1,0 +1,25 @@
+.text {
+  margin: 0;
+
+  &--center {
+    text-align: center;
+  }
+
+  &--orange {
+    color: $orange;
+  }
+
+  &--reg {
+    font-family: 'M', Arial, sans-serif;
+  }
+
+  &--header {
+    font-family: 'MB', Arial, sans-serif;
+  }
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
