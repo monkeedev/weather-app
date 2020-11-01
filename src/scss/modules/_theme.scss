@@ -5,17 +5,15 @@
   user-select: none;
   z-index: 1;
   height: 100vh;
-  min-height: 667px;
 
   &__background {
     background: url('../../img/bg.jpg') no-repeat center / cover;
     filter: blur(10px);
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    min-height: 667px;
     overflow: hidden;
 
     &-wrapper {
@@ -24,8 +22,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      min-height: 667px;
-      overflow: hidden;
       z-index: -1;  
       transform: scale(1.1);
     }
@@ -39,12 +35,11 @@
   &:before {
     content: '';
     position: fixed;
-    top: 50%;
+    top: 0;
     left: 0;
-    transform: translateY(-50%);
     width: 100%;
     height: 100%;
-    opacity: .75;
+    opacity: .7;
     background-color: $white;
   }
 }
@@ -83,7 +78,10 @@
     top: 0;
     transition: .2s ease-in-out;
 
-    -webkit-tap-highlight-color: transparent;
+    &:active,
+    &:focus {
+      outline: none;
+    }
   }
 
   &__input {
@@ -98,27 +96,6 @@
     border: none;
     background-color: transparent;
     
-    &::-ms-clear {
-      display: none;
-    }
-
-    &:active,
-    &:focus {
-      outline: none;
-      box-shadow: inset 0 0 1px 1px $orange;
-    }
-
-    &:active + &-bg,
-    &:focus + &-bg {
-      opacity: .5;
-    }
-
-    &:hover ~ .search__button,
-    &:active ~ .search__button,
-    &:focus ~ .search__button {
-      background-color: $orange;
-    }
-
     &-bg {
       border-radius: 10px;
       background-color: $white;
@@ -131,6 +108,24 @@
       top: 0;
       pointer-events: none;
       z-index: -1;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+    &:hover + &-bg,
+    &:active + &-bg,
+    &:focus + &-bg {
+      opacity: .5;
+    }
+
+    &:hover ~ .search__button,
+    &:active ~ .search__button,
+    &:focus ~ .search__button {
+      background-color: $orange;
     }
   }
 }
@@ -306,40 +301,28 @@
       padding-left: 2.5vw;
     }
   }
+}
+
+.empty {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  pointer-events: none;
 
   &__icon {
-    margin-left: 10px;
-    width: 2vw;
-    height: 2vw;
-    display: inline-block;
-    vertical-align: middle;
-    background: url('../../img/arrow-right.svg') no-repeat center / contain;
+    width: 12.5vw;
+    height: 12.5vw;
+  }
 
-    &--direction {
-      &-n {
-        transform: rotateZ(0);
-      }
-      &-nw {
-        transform: rotateZ(45deg);
-      }
-      &-w {
-        transform: rotateZ(90deg);
-      }
-      &-sw {
-        transform: rotateZ(135deg);
-      }
-      &-s {
-        transform: rotateZ(180deg);
-      }
-      &-se {
-        transform: rotateZ(225deg);
-      }
-      &-e {
-        transform: rotateZ(270deg);
-      }
-      &-ne {
-        transform: rotateZ(315deg);
-      }
-    }
+  &__text {
+    margin-top: 2vw;
+    font-size: 1.5vw;
+    font-weight: 900;
   }
 }

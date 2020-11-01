@@ -6,7 +6,7 @@ export const initialState = {
     current: {},
     forecast: {}
   },
-  search: undefined
+  search: ''
 }
 
 export const store = createStore(

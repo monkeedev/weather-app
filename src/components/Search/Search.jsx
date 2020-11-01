@@ -2,8 +2,6 @@ import React from 'react';
 import { useStore, useDispatch } from 'react-redux';
 import { handleSearch, setCurrent, setForecast } from '../../redux/actions';
 
-const cities = [ 'Simferopol', 'Moscow', 'New York', 'Kiev', 'London', 'Istanbul'];
-
 export const Search = _ => {
   const store = useStore(); 
   const dispatch = useDispatch();
@@ -24,25 +22,19 @@ export const Search = _ => {
 
   const pushDataToState = search => {
     return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=bdb758c73d929483146ad6c4d174a694`)
-    .then( response => {
-      if(response.ok) return response.json();
-    })
+    .then( response => response.json())
     .then( data => {
-      if(data === undefined) return;
       dispatch(setCurrent(data));
-
+  
+      if(data.cod === '404') return;
       fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&exclude=current,minutely,hourly,alerts&appid=bdb758c73d929483146ad6c4d174a694`)
-      .then( response => { 
-        if(response.ok) return response.json();
-      })
-      .then( data => {
-        if(data === undefined) return;
-        dispatch(setForecast(data));
-      })
+        .then( response => response.json())
+        .then( data => dispatch(setForecast(data)))
+        .catch( err => console.log(err));
     })
   };
 
-  dispatch(handleSearch(cities[Math.round(Math.random() * cities.length - 1)]));
+  dispatch(handleSearch('Simferopol'));
   pushDataToState(store.getState().search);
 
   return(

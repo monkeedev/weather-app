@@ -29,12 +29,12 @@ export const getIcon = id => {
 }
 
 export const getWindDirection = deg => {
-  if(deg >= 0 && deg < 45) return 'nw';
-  else if(deg >= 45 && deg < 90) return 'n';
-  else if(deg >= 90 && deg < 135) return 'ne';
-  else if(deg >= 135 && deg < 180) return 'e';
-  else if(deg >= 180 && deg < 225) return 'se';
-  else if(deg >= 225 && deg < 270) return 's';
-  else if(deg >= 270 && deg < 315) return 'sw';
-  else if(deg >= 315 && deg < 360) return 'w';
+  if(deg >= 0 && deg < 45) return '🡬';
+  else if(deg >= 45 && deg < 90) return '🡩';
+  else if(deg >= 90 && deg < 135) return '🡭';
+  else if(deg >= 135 && deg < 180) return '🡪';
+  else if(deg >= 180 && deg < 225) return '🡮';
+  else if(deg >= 225 && deg < 270) return '🡫';
+  else if(deg >= 270 && deg < 315) return '🡯';
+  else if(deg >= 315 && deg < 360) return '🡨';
 }

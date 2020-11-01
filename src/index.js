@@ -9,21 +9,17 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
 import { Search } from '../src/components/Search/Search';
-import { Dashboard } from '../src/components/Info/Dashboard';
-import { Info } from '../src/components/Info/Info';
-import { Slider } from '../src/components/Slider/Slider';
 
 import './scss/main.scss';
 import { Background } from './components/Background/Background';
+import { App } from './App';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Background/>
       <Search />
-      <Dashboard />
-      <Slider />
-      <Info />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
