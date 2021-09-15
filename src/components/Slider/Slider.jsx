@@ -10,7 +10,7 @@ export const Slider = ({ forecast }) => {
   useEffect( _ => {
     window.addEventListener('resize', _ => setSize(window.innerWidth));
     window.addEventListener('rotationchange', _ => setSize(window.innerWidth));
-  })
+  }, [])
 
   const renderStaticSlides = data => {
     return(
@@ -21,8 +21,8 @@ export const Slider = ({ forecast }) => {
           const { min, max } = temp;
           const { day, night, eve, morn } = feels_like;
 
-          let nextDay = new Date().getDate() + (k + 1);
-          let nextDayTimestamp = Date.now() + 1000 * 60 * 60 * 24 * (k + 1);
+          let nextDay = new Date().getDate() + k;
+          let nextDayTimestamp = Date.now() + 1000 * 60 * 60 * 24 * k;
 
           return(
             <li className="text--center slider__item" key={k}>
