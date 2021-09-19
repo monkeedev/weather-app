@@ -8,6 +8,10 @@ import Atmosphere from '../img/forecast/031-cloudy.svg';
 import Clear from '../img/forecast/013-sunny.svg';   
 import Clouds from '../img/forecast/035-cloud.svg';   
 
+export const getDate = timestamp => {
+  return parseDate(timestamp ?? new Date(Date.now()));
+}
+
 const parseDate = date => {
   if (!date) {
     return {}
@@ -24,18 +28,6 @@ const parseDate = date => {
 
     return o;
   }
-}
-
-export const getDay = number => {
-  return days[number % 7];
-}
-
-export const getDate = timestamp => {
-  return parseDate(timestamp ?? new Date(Date.now()));
-}
-
-export const getMonth = number => {
-  return months[number];
 }
 
 export const getIcon = id => {
