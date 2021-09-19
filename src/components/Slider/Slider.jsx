@@ -14,8 +14,8 @@ export const Slider = ({ forecast }) => {
 
   if(Object.keys(forecast).length === 0 ) return null;
   return (
-    <>
+    <div className="slider--mobile">
       { size > 1024 ? <StaticSlides data={forecast.daily} /> : <DynamicSlides data={forecast.daily} />}
-    </>
+    </div>
   )
 }
