@@ -1,3 +1,5 @@
+import {days, months} from './constants';
+
 import Thunderstorm from '../img/forecast/006-thunderstorm.svg';
 import Drizzle from '../img/forecast/019-raining.svg'; 
 import Rain from '../img/forecast/023-rain-4.svg'; 
@@ -6,16 +8,26 @@ import Atmosphere from '../img/forecast/031-cloudy.svg';
 import Clear from '../img/forecast/013-sunny.svg';   
 import Clouds from '../img/forecast/035-cloud.svg';   
 
-export const getDay = number => {
-  const days = [ 'Wen', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue' ];
-  
-  return days[number % 7];
+export const getDate = timestamp => {
+  return parseDate(timestamp ?? new Date(Date.now()));
 }
 
-export const getMonth = number => {
-  const months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
-  
-  return months[number];
+const parseDate = date => {
+  if (!date) {
+    return {}
+  } else {
+    let o = {};
+
+    const _date = new Date(date);
+
+    o.year = _date.getFullYear();
+    o.month = _date.getMonth() + 1;
+    o.day = _date.getDate();
+    o.monthLiteral = months[_date.getMonth()];
+    o.dayLiteral = days[_date.getDay()];
+
+    return o;
+  }
 }
 
 export const getIcon = id => {

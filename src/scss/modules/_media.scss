@@ -76,7 +76,7 @@
     position: relative;
     bottom: unset;
     left: -30px;
-    padding: 0 30px;
+    padding: 0 30px !important;
     margin-bottom: 3.75vw;
     box-shadow: none;
     border-radius: 0;
@@ -90,6 +90,8 @@
       &-logo {
         width: 7.5vw;
         height: 7.5vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
       }
       
       &-text {
@@ -128,6 +130,10 @@
       width: 5.35vw;
       background-color: $orange;
     }
+  }
+
+  .footer {
+    bottom: -1vh;
   }
 }
 
@@ -258,6 +264,26 @@
     &__text {
       margin-top: 20px;
       font-size: 15px;
+    }
+  }
+
+
+  .footer {
+    position: unset;
+    padding-bottom: 5vw;
+    margin-top: 15vw;
+  }
+}
+
+@media (max-width: 568px) {
+  .footer {
+    position: absolute;
+    padding-bottom: 0;
+    margin-top: 0;
+    bottom: 2vw;
+
+    &__text {
+      font-size: 3vw;
     }
   }
 }

@@ -1,8 +1,13 @@
-import React from 'react';
-import { getIcon, getDay, getMonth } from '../../utils/functions';
+import React, { useEffect, useState } from 'react';
+import { getIcon, getDate } from '../../utils/functions';
 
 export const Dashboard = ({ current }) => {
   const { weather, main } = current;
+  const [day, setDay] = useState({});
+
+  useEffect(() => {
+    setDay(getDate());
+  }, [])
 
   if(current.cod === '404') return null;
   return(
@@ -23,7 +28,7 @@ export const Dashboard = ({ current }) => {
       </div>
       <div className="dashboard__date">
         <p className="text text--reg dashboard__date-text">
-          {getDay(new Date().getDate())}, <span className="text--orange">{new Date().getDate()} {getMonth(new Date().getMonth())} {new Date().getFullYear()}</span>
+          {day.dayLiteral}, <span className="text--orange">{day.day} {day.monthLiteral} {day.year}</span>
         </p>
       </div> 
     </section>
